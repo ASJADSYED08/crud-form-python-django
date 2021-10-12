@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<table class="table table-striped">
+<!-- 
+    <form method="POST" action="/search">
+    {% csrf_token %}
+        <tr><td><input name="name" ></td>
+        <td><button type="submit" >search</button> </td>   
+        </tr>
+    </form> -->
+
+    <tr>
+        <th>ID</th>                                                                                     
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>CONTACT</th>
+    </tr>
+
+    {% for i in employee %}
+    <tr>
+        <td>{{ i.eid }}</td>
+        <td>{{ i.ename }}</td>
+        <td>{{ i.eemail }}</td>
+        <td>{{ i.econtact }}</td>
+        <td>
+            <a href="edit/{{i.id }}">Edit</a>
+        </td>
+        <td>
+            <a href="delete/{{i.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock %}
